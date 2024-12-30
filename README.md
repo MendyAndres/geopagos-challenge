@@ -104,6 +104,9 @@ Once the setup is complete, the API will be available at:
 
 You can interact with endpoints under `http://localhost/api/v1` using tools like **Postman** or **cURL**.
 
+In addition, a production-ready endpoint is available for consumption at:
+`http://54.226.11.103/api/v1`.
+
 ---
 
 ### Useful Sail Commands
