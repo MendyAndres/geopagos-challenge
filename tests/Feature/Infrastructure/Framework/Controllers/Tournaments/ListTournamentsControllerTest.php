@@ -26,6 +26,13 @@ class ListTournamentsControllerTest extends TestCase
         ];
     }
 
+    /**
+     * Tests the listing of tournaments without applying any filters.
+     *
+     * This test creates a set of tournaments, verifies the API response matches
+     * the expected structure and content excluding the `created_at` field,
+     * and ensures the response has the correct data count and format.
+     */
     public function testListTournamentsWithoutFilters(): void
     {
         $tournaments = [
@@ -52,6 +59,14 @@ class ListTournamentsControllerTest extends TestCase
             ->assertJsonStructure($this->getJsonStructure());
     }
 
+    /**
+     * Tests the listing of tournaments with a gender filter applied.
+     *
+     * This test creates a set of tournaments, applies a filter based on the gender,
+     * and verifies the API response includes only the tournaments that match the
+     * specified gender. It also ensures the response has the correct data count,
+     * structure, and expected content.
+     */
     public function testListTournamentsWithGenderFilter(): void
     {
         $tournaments = [
@@ -77,6 +92,14 @@ class ListTournamentsControllerTest extends TestCase
             ->assertJsonStructure($this->getJsonStructure());
     }
 
+    /**
+     * Tests the listing of tournaments with date filters applied.
+     *
+     * This test creates a set of tournaments, applies `from_date` and `to_date` filters to query the API,
+     * and verifies that the response includes only the tournaments within the specified date range.
+     * It asserts that the response matches the expected structure, contains the correct number of tournaments,
+     * and verifies the data format is accurate.
+     */
     public function testListTournamentsWithDateFilters(): void
     {
         $tournaments = [

@@ -8,6 +8,10 @@ use PHPUnit\Framework\TestCase;
 
 class ExecuteMatchServiceTest extends TestCase
 {
+    /**
+     * Tests the execution of a match between two male players.
+     * Asserts that the winner's ID matches one of the participating players' IDs.
+ */
     public function testExecuteMatchMale(): void
     {
         $player1 = new Player(1, 'Roger', 70, 'male', 50, 60, null, null);
@@ -20,6 +24,10 @@ class ExecuteMatchServiceTest extends TestCase
         $this->assertContains($winner->getId(), [$player1->getId(), $player2->getId()]);
     }
 
+    /**
+     * Tests the execution of a match between two female players.
+     * Asserts that the winner's ID matches one of the participating players' IDs.
+     */
     public function testExecuteMatchFemale()
     {
         $service = new ExecuteMatchService();

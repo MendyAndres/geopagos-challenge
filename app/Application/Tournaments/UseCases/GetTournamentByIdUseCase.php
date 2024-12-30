@@ -12,6 +12,13 @@ final readonly class GetTournamentByIdUseCase
 {
     public function __construct(private TournamentRepositoryInterface $tournamentRepository, private GetPlayerByIdUseCase $getPlayerByIdUseCase){}
 
+    /**
+     * Executes the process of retrieving a tournament by its ID, transforming it into a Tournament entity,
+     * and fetching data of the winning player, then returning a PlayedTournamentDTO.
+     *
+     * @param int $tournamentId
+     * @return PlayedTournamentDTO
+     */
     public function execute(int $tournamentId): PlayedTournamentDTO
     {
         $responseTournament = $this->tournamentRepository->findOneById($tournamentId);

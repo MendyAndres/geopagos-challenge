@@ -57,6 +57,15 @@ class Player
         return $this->tournamentId;
     }
 
+    /**
+     * Validates the player's attributes based on their gender.
+     *
+     * Throws an exception if required attributes are missing for male or female players:
+     * - Male players must have defined strength and speed levels.
+     * - Female players must have a defined reaction time.
+     *
+     * @throws \InvalidArgumentException
+     */
     private function validate(): void
     {
         if($this->gender === 'male') {

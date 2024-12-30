@@ -11,7 +11,13 @@ final readonly class GetPlayersUseCase
 {
     public function __construct(private PlayerRepositoryInterface $playerRepository){}
 
-    public function execute()
+    /**
+     * Retrieves all player records from the repository, transforms them into Player
+     * objects, and subsequently maps them into PlayerDTO objects.
+     *
+     * @return array An array of PlayerDTO objects.
+     */
+    public function execute(): array
     {
         $response = $this->playerRepository->findAll();
 

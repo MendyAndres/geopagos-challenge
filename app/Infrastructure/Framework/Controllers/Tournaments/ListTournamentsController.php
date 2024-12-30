@@ -13,6 +13,13 @@ class ListTournamentsController
     use ResponseFormatter;
     public function __construct(private readonly GetTournamentsUseCase $getTournamentsUseCase){}
 
+    /**
+     * Handles the incoming request to list tournaments based on provided filters.
+     *
+     * @param ListTournamentsRequest $request
+     * @return JsonResponse
+     * @throws Exception
+     */
     public function __invoke(ListTournamentsRequest $request): JsonResponse
     {
         try {

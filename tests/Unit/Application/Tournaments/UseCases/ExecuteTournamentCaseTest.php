@@ -18,6 +18,11 @@ class ExecuteTournamentCaseTest extends TestCase
         Mockery::close();
     }
 
+    /**
+     * Tests that the ExecuteTournamentUseCase correctly calls its dependencies,
+     * verifies the execution of the tournament, and ensures the winner is properly saved
+     * and returned as a PlayedTournamentDTO instance.
+     */
     public function testExecuteCallsDependenciesCorrectly()
     {
         $players = [
@@ -33,7 +38,7 @@ class ExecuteTournamentCaseTest extends TestCase
         $executeTournamentServiceMock->shouldReceive('execute')
             ->once()
             ->with($players, $tournament)
-            ->andReturn($players[1]); // Jugador 2 gana
+            ->andReturn($players[1]);
 
         $tournamentRepositoryMock->shouldReceive('saveWinner')
             ->once()

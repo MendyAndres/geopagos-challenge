@@ -10,9 +10,9 @@ trait ResponseFormatter
     /**
      * Formats a successful response.
      *
-     * @param mixed $data The data to include in the response.
-     * @param string $message The success message (default is 'Success').
-     * @return JsonResponse The formatted success response.
+     * @param mixed $data
+     * @param string $message
+     * @return JsonResponse
      */
     public static function success(mixed $data, string $message = 'Success'): JsonResponse
     {
@@ -26,9 +26,9 @@ trait ResponseFormatter
     /**
      * Formats an error response.
      *
-     * @param string $message The error message.
-     * @param int $code The error code (default is 500).
-     * @return JsonResponse The formatted error response.
+     * @param string $message
+     * @param int $code
+     * @return JsonResponse
      */
     public static function error(string $message, int $code = 500): JsonResponse
     {

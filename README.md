@@ -72,6 +72,17 @@ Ensure the following are installed:
 
    You can adjust any necessary environment variables in `.env` as required (e.g., database). Laravel Sail defaults should work fine out of the box.
 
+   If you're using Sail for development, the default database configuration is as follows:
+
+    ```
+    DB_CONNECTION=mysql
+    DB_HOST=mysql
+    DB_PORT=3306
+    DB_DATABASE=laravel
+    DB_USERNAME=sail
+    DB_PASSWORD=password
+   ```
+
 4. **Start Laravel Sail**:
 
    ```bash

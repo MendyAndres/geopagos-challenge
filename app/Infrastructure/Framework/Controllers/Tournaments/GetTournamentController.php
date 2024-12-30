@@ -14,6 +14,14 @@ class GetTournamentController
 
     public function __construct(private readonly GetTournamentByIdUseCase $getTournamentByIdUseCase){}
 
+    /**
+     * Handles the invocation of retrieving tournament data by ID and returning a JSON response.
+     *
+     * @param int $id
+     * @return JsonResponse
+     * @throws ModelNotFoundException
+     * @throws Exception
+     */
     public function __invoke(int $id): JsonResponse
     {
         try {

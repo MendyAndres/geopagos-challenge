@@ -12,6 +12,12 @@ readonly class StoreTournamentUseCase
     public function __construct(private TournamentRepositoryInterface $tournamentRepository){}
 
 
+    /**
+     * Executes the creation process of a tournament based on the provided request data.
+     *
+     * @param array $request
+     * @return array
+     */
     public function execute(array $request): array
     {
         $tournamentEntity = new Tournament(

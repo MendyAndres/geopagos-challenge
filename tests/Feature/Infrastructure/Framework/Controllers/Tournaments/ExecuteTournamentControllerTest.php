@@ -9,6 +9,11 @@ class ExecuteTournamentControllerTest extends TestCase
 {
     use RefreshDatabase;
 
+    /**
+     * Tests the successful execution of a tournament with provided data.
+     * Verifies that the response status is 200 and matches the expected JSON structure.
+     * Asserts that the created tournament data is correctly stored in the database.
+     */
     public function testExecuteTournamentSuccess(): void
     {
         $payload = [
@@ -76,6 +81,10 @@ class ExecuteTournamentControllerTest extends TestCase
         ]);
     }
 
+    /**
+     * Tests the execution of a tournament with an invalid number of players.
+     * Confirms that the system returns a 400 status code with the appropriate error message.
+     */
     public function testExecuteTournamentInvalidNumberOfPlayers(): void
     {
         $payload = [

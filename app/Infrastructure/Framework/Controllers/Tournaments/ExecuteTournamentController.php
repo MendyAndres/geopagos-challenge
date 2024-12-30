@@ -22,6 +22,14 @@ final readonly class ExecuteTournamentController
         private StoreTournamentUseCase $storeTournamentUseCase,
     ){}
 
+    /**
+     * Handles the invocation of the request to execute a tournament process, including
+     * storing the tournament, creating player entities, executing the tournament logic,
+     * and responding with the outcome.
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function __invoke(Request $request): JsonResponse
     {
         DB::beginTransaction();

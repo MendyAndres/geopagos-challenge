@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace App\Application\Players\UseCases;
 
-use App\Application\Players\DTOs\PlayerDTO;
 use App\Domain\Players\Entities\Player;
 use App\Domain\Players\Repositories\PlayerRepositoryInterface;
 

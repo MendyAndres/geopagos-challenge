@@ -11,6 +11,12 @@ final readonly class GetTournamentsUseCase
 {
     public function __construct(private TournamentRepositoryInterface $tournamentRepository){}
 
+    /**
+     * Executes a query to find tournaments based on the provided filters.
+     *
+     * @param array $filters
+     * @return array
+     */
     public function execute(array $filters): array
     {
         $response = $this->tournamentRepository->findWithFilters($filters);

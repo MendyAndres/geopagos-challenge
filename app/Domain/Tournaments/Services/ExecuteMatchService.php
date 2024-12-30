@@ -8,6 +8,18 @@ use App\Domain\Players\Entities\Player;
 class ExecuteMatchService
 {
 
+    /**
+     * Executes a match between two players based on their skill levels and additional factors.
+     *
+     * This method incorporates random luck and additional skill attributes to determine
+     * the winner between two players in a specified tournament type.
+     *
+     * @param Player $player1
+     * @param Player $player2
+     * @param string $tournamentType
+     *
+     * @return Player
+     */
     public function execute(Player $player1, Player $player2, string $tournamentType): Player
     {
         $luckyPlayer1 = rand(-30, 30);
@@ -25,6 +37,15 @@ class ExecuteMatchService
 
     }
 
+    /**
+     * Prepares a match based on the tournament type and the given players.
+     *
+     * @param string $tournamentType
+     * @param Player $player1
+     * @param Player $player2
+     *
+     * @return array
+     */
     private function prepareMatch(string $tournamentType, Player $player1, Player $player2): array
     {
         return match ($tournamentType) {
@@ -33,7 +54,12 @@ class ExecuteMatchService
         };
     }
 
-    private function femaleMatch(Player $player1, Player $player2)
+    /**
+     * @param Player $player1
+     * @param Player $player2
+     * @return array
+     */
+    private function femaleMatch(Player $player1, Player $player2): array
     {
         $otherSkillsPlayer1 = $player1->getReactionTime();
         $otherSkillsPlayer2 = $player2->getReactionTime();
@@ -41,7 +67,13 @@ class ExecuteMatchService
         return [$otherSkillsPlayer1, $otherSkillsPlayer2];
     }
 
-    private function maleMatch(Player $player1, Player $player2)
+
+    /**
+     * @param Player $player1
+     * @param Player $player2
+     * @return array
+     */
+    private function maleMatch(Player $player1, Player $player2): array
     {
         $otherSkillsPlayer1 = $player1->getStrengthLevel() + $player1->getSpeedLevel() ;
         $otherSkillsPlayer2 = $player2->getStrengthLevel() + $player2->getSpeedLevel();
